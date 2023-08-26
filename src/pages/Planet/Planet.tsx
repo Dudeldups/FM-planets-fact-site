@@ -1,10 +1,8 @@
-import { useParams, useLoaderData, NavLink, Link } from "react-router-dom";
+import { useParams, useLoaderData, NavLink, Outlet } from "react-router-dom";
 
 import "./Planet.scss";
 
-type PlanetProps = {};
-
-export default function Planet({}: PlanetProps) {
+export default function Planet() {
   const params = useParams();
   const data = useLoaderData() as Planet[];
 
@@ -19,7 +17,7 @@ export default function Planet({}: PlanetProps) {
   return (
     <article className="planet">
       <div className="planet__top-container">
-        <img src={planet.images.planet} alt={planet.name} />
+        {/* <img src={planet.images.planet} alt={planet.name} />
 
         <header className="planet__header">
           <h1 className="planet__title">{planet.name}</h1>
@@ -37,12 +35,13 @@ export default function Planet({}: PlanetProps) {
               </cite>
             </footer>
           </blockquote>
-        </header>
+        </header> */}
+        <Outlet />
 
         <ul className="planet__link-list">
           <li className="planet__link-item">
             <NavLink
-              to="overview"
+              to="."
               title="Overview"
               className="link planet__inner-link">
               Overview
