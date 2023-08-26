@@ -1,1 +1,6 @@
 @use "../abstracts/" as *;
+
+body {
+  background-color: $clr-main-900;
+  color: $clr-white;
+}

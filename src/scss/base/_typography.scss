@@ -8,7 +8,12 @@
 //   src: url("/assets/fonts/Rubik-VariableFont_wght.ttf");
 // }
 
-// body {
-//   font: 300 1.125rem "Rubik", sans-serif;
-//   color: white;
-// }
+body {
+  //   font: 300 1.125rem "Rubik", sans-serif;
+  color: $clr-white;
+}
+
+.link {
+  text-decoration: none;
+  color: $clr-white;
+}

@@ -8,8 +8,8 @@ export const rootLoader = () => {
 export default function Root() {
   const navLinks = data.map(({ name }: Planet) => {
     return (
-      <li key={name + "-navlink"} className="nav__item">
-        <NavLink to={name} title={name}>
+      <li key={`${name}-navlink`} className="nav__item">
+        <NavLink to={name} title={name} className="link">
           {name}
         </NavLink>
       </li>
@@ -21,14 +21,21 @@ export default function Root() {
       <header className="header">
         <nav className="nav">
           <Link to="/">
-            <p className="nav__title">The Planets</p>
+            <p className="nav__title link">The Planets</p>
           </Link>
-          <ul className="nav__list">{navLinks}</ul>
+          <ul className="nav__list">
+            <NavLink to="/" title="Home" className="link">
+              Home
+            </NavLink>
+            {navLinks}
+          </ul>
         </nav>
       </header>
 
       <main>
-        <Outlet />
+        <section>
+          <Outlet />
+        </section>
       </main>
     </>
   );
