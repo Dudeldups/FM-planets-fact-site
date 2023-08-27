@@ -1,6 +1,8 @@
 @use "../../scss/abstracts" as *;
 
 .nav {
+  @include max-width-content($add: 17rem);
+  @include padding-inline;
   display: flex;
   justify-content: space-between;
 
@@ -10,6 +12,16 @@
 
     @include mq($until: $bp-tablet) {
       flex-direction: column;
+    }
+  }
+}
+
+.hamburger {
+  // NOMNOM 🍔
+
+  &-label {
+    @include mq($bp-tablet) {
+      display: none;
     }
   }
 }

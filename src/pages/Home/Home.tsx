@@ -1,5 +1,7 @@
 import { Link, useLoaderData } from "react-router-dom";
 
+import "./Home.scss";
+
 export default function Home() {
   const data = useLoaderData() as Planet[];
 
@@ -8,7 +10,9 @@ export default function Home() {
   return (
     <article className="home">
       <header>
-        <h1 className="home__title">The planets of our Solar System</h1>
+        <h1 className="home__title">
+          The planets <span>of our</span> Solar System
+        </h1>
         <blockquote className="home__quote" cite={source}>
           <p className="home__desc">
             The Solar System is the gravitationally bound system of the Sun and

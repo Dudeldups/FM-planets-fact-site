@@ -1,5 +1,9 @@
 @use "../../scss/abstracts" as *;
 
-li {
-  max-width: max-content;
+.home {
+  &__title {
+    & span {
+      display: block;
+    }
+  }
 }

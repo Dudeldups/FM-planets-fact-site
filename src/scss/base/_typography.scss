@@ -17,6 +17,28 @@
 }
 
 body {
-  //   font: 300 1.125rem "Rubik", sans-serif;
+  font: 400 1rem / normal "League Spartan", sans-serif;
   color: $clr-white;
+}
+
+:where(h1, h2, h3, h4, h5, h6) {
+  @include font(
+    get-clamp(2.5, 5, 23, $bp-desktop),
+    400,
+    $transform: uppercase,
+    $family: "Antonio"
+  );
+}
+
+.home {
+  &__title {
+    @include font(
+      get-clamp(2.5 * 1.2, 5 * 1.2, 23, $bp-desktop),
+      700,
+      150%,
+      get-clamp(0.12rem, 0.3rem, 23, $bp-desktop),
+      null,
+      center
+    );
+  }
 }

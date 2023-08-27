@@ -25,6 +25,15 @@ export default function Root() {
           <Link to="/">
             <p className="nav__title link">The Planets</p>
           </Link>
+          <input
+            id="hamburger"
+            name="hamburger"
+            type="checkbox"
+            className="hamburger-input sr-only"
+          />
+          <label htmlFor="hamburger" className="hamburger-label">
+            <span className="sr-only">Toggle enu</span>
+          </label>
           <ul className="nav__list">
             <li>
               <NavLink to="/" title="Home" className="nav__link">

@@ -10,11 +10,16 @@
   @return math.div(math.round($number * $n), $n);
 }
 
-@function px2rem($px) {
-  @if math.compatible($px, 1rem) {
-    @return $px;
+@function px2rem($input) {
+  @if math.is-unitless($input) {
+    @return $input * 1rem;
   }
-  @return math.div($px, 16px) * 1rem;
+  @if math.compatible($input, 1px) {
+    @return math.div($input, 16px) * 1rem;
+  }
+  @if math.compatible($input, 1rem) {
+    @return $input;
+  }
 }
 
 @function get-clamp(
@@ -24,6 +29,8 @@
   $max-breakpoint,
   $unit: vw
 ) {
+  $min-size: px2rem($min-size);
+  $max-size: px2rem($max-size);
   $min-breakpoint: px2rem($min-breakpoint);
   $max-breakpoint: px2rem($max-breakpoint);
   $slope: math.div($max-size - $min-size, $max-breakpoint - $min-breakpoint);
@@ -36,4 +43,21 @@
     #{$slope-to-unit}#{$unit} + #{$intercept-rem},
     #{$max-size-rem}
   );
+}
+
+@function validateStrings($stringList) {
+  @if type-of($stringList) == number or type-of($stringList) != string {
+    @return null;
+  }
+
+  $styles: ();
+
+  $text-alignings: "start", "end", "left", "right", "center", "justify",
+    "justify-all", "match-parent", "revert";
+
+  @if index($text-alignings, $stringList) {
+    $styles: append($styles, "text-align: #{$stringList};");
+  }
+
+  @return $styles;
 }
