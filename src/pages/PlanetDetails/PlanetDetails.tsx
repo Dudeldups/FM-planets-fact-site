@@ -27,7 +27,8 @@ export default function PlanetDetails() {
   const isValidPage =
     currentPage && Object.keys(validDetails).includes(currentPage);
 
-  // details to fill the page
+  ///// details to fill the page
+
   const mainImg =
     currentPage === "structure" ? planet.images.internal : planet.images.planet;
   let description, source;
@@ -49,10 +50,12 @@ export default function PlanetDetails() {
       break;
   }
 
+  /////
+
   return (
     <div className="planet__top-container">
       <figure className="planet__img-container">
-        <img src={mainImg} alt={planet.name} />
+        <img src={mainImg} alt={`An illustration of ${planet.name}`} />
         {currentPage === "geology" && (
           <img
             src={planet.images.geology}
@@ -62,7 +65,7 @@ export default function PlanetDetails() {
       </figure>
 
       <header className="planet__header">
-        <h1 className="planet__title">{planet.name}</h1>
+        <h2 className="planet__title">{planet.name}</h2>
         <blockquote className="planet__quote" cite={source}>
           <p className="planet__desc">{description}</p>
           <footer>

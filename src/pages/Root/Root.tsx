@@ -39,6 +39,14 @@ export default function Root() {
           <Outlet />
         </section>
       </main>
+
+      <footer className="footer">
+        <p>
+          Challenge by{" "}
+          <a href="https://www.frontendmentor.io">Frontend Mentor</a>. Coded by{" "}
+          <a href="https://github.com/Dudeldups">Arne Jacob</a>.
+        </p>
+      </footer>
     </>
   );
 }
