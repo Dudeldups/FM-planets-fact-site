@@ -13,24 +13,16 @@ import Home from "./pages/Home/Home";
 import Planet from "./pages/Planet/Planet";
 import PlanetDetails from "./pages/PlanetDetails/PlanetDetails";
 
-import "./scss/main.scss";
+// import "./scss/main.scss";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Root />} errorElement={<ErrorPage />}>
-      <Route index element={<Home />} loader={rootLoader} />
-      <Route
-        path=":planet"
-        element={<Planet />}
-        errorElement={<ErrorPage />}
-        loader={rootLoader}>
-        <Route path="." element={<PlanetDetails />} loader={rootLoader} />
-        <Route
-          path="structure"
-          element={<PlanetDetails />}
-          loader={rootLoader}
-        />
-        <Route path="geology" element={<PlanetDetails />} loader={rootLoader} />
+      <Route errorElement={<ErrorPage />}>
+        <Route index element={<Home />} loader={rootLoader} />
+        <Route path=":planet" element={<Planet />} loader={rootLoader}>
+          <Route path=":detail" element={<PlanetDetails />} />
+        </Route>
       </Route>
     </Route>
   )

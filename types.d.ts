@@ -18,3 +18,9 @@ type Planet = {
     geology: string;
   };
 };
+
+type ValidDetails = {
+  overview: "Overview";
+  structure: "Internal structure";
+  geology: "Surface geology";
+};

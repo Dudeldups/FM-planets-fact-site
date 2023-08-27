@@ -6,10 +6,10 @@ export const rootLoader = () => {
 };
 
 export default function Root() {
-  const navLinks = data.map(({ name }: Planet) => {
+  const planetLinks = data.map(({ name }: Planet) => {
     return (
       <li key={`${name}-navlink`} className="nav__item">
-        <NavLink to={name} title={name} className="link">
+        <NavLink to={`${name}/overview`} title={name} className="nav__link">
           {name}
         </NavLink>
       </li>
@@ -24,10 +24,12 @@ export default function Root() {
             <p className="nav__title link">The Planets</p>
           </Link>
           <ul className="nav__list">
-            <NavLink to="/" title="Home" className="link">
-              Home
-            </NavLink>
-            {navLinks}
+            <li>
+              <NavLink to="/" title="Home" className="nav__link">
+                Home
+              </NavLink>
+            </li>
+            {planetLinks}
           </ul>
         </nav>
       </header>

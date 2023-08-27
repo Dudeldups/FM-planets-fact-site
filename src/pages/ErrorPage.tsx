@@ -9,33 +9,30 @@ export default function ErrorPage() {
   const navigate = useNavigate();
   const error = useRouteError();
 
-  if (isRouteErrorResponse(error)) {
-    return (
-      <div id="error-page">
-        <p>Oops! {error.status}</p>
+  return (
+    <div id="error-page">
+      <p>Oops! There was an error 😟</p>
 
-        <p>{error.statusText}</p>
-        {error.data?.message && (
-          <p>
-            <i>{error.data.message}</i>
-          </p>
-        )}
-      </div>
-    );
-  } else if (error instanceof Error) {
-    return (
-      <div id="error-page">
-        <p>Oops! There was an error 😟</p>
-
+      {isRouteErrorResponse(error) ? (
+        <>
+          <pre>{error.statusText + " " + error.status}</pre>
+          {error.data?.message && (
+            <p>
+              <i>{error.data.message}</i>
+            </p>
+          )}
+        </>
+      ) : error instanceof Error ? (
         <p>
           <i>{error.message}</i>
         </p>
-        <Link onClick={() => navigate(-1)} to={""}>
-          Go back
-        </Link>
-      </div>
-    );
-  } else {
-    return <></>;
-  }
+      ) : (
+        <></>
+      )}
+
+      <Link onClick={() => navigate(-1)} to={""}>
+        Go back
+      </Link>
+    </div>
+  );
 }
