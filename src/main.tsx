@@ -13,7 +13,7 @@ import Home from "./pages/Home/Home";
 import Planet from "./pages/Planet/Planet";
 import PlanetDetails from "./pages/PlanetDetails/PlanetDetails";
 
-// import "./scss/main.scss";
+import "./scss/main.scss";
 
 const router = createBrowserRouter(
   createRoutesFromElements(

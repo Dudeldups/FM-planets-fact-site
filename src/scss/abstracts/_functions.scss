@@ -10,6 +10,13 @@
   @return math.div(math.round($number * $n), $n);
 }
 
+@function px2rem($px) {
+  @if math.compatible($px, 1rem) {
+    @return $px;
+  }
+  @return math.div($px, 16px) * 1rem;
+}
+
 @function get-clamp(
   $min-size,
   $max-size,
@@ -17,6 +24,8 @@
   $max-breakpoint,
   $unit: vw
 ) {
+  $min-breakpoint: px2rem($min-breakpoint);
+  $max-breakpoint: px2rem($max-breakpoint);
   $slope: math.div($max-size - $min-size, $max-breakpoint - $min-breakpoint);
   $slope-to-unit: round($slope * 100, 2);
   $intercept-rem: round($min-size - $slope * $min-breakpoint, 2);

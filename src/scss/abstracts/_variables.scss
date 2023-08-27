@@ -20,3 +20,14 @@ $clr-neptune: #2d68f0;
 
 $bp-tablet: 740px;
 $bp-desktop: 980px;
+
+// sizing
+$padding-inline-min: 1.5rem;
+$padding-inline-max: 2.44rem;
+$padding-inline-content: get-clamp(
+  $padding-inline-min,
+  $padding-inline-max,
+  20rem,
+  $bp-tablet
+);
+$max-width-content: 1110px;

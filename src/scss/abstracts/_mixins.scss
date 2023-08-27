@@ -1,0 +1,12 @@
+@use "functions" as *;
+@use "variables" as *;
+
+@mixin max-width-content($value-to-add: 0) {
+  max-width: px2rem($max-width-content) + 2 * $padding-inline-max +
+    $value-to-add;
+  margin-inline: auto;
+}
+
+@mixin padding-inline {
+  padding-inline: $padding-inline-content;
+}

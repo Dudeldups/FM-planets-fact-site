@@ -1,1 +1,5 @@
-@use "../../scss/abstracts";
+@use "../../scss/abstracts" as *;
+
+li {
+  max-width: max-content;
+}

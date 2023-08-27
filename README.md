@@ -6,7 +6,7 @@ This is a solution to the [Planets fact site challenge on Frontend Mentor](https
 
 - [Overview](#overview)
   - [The challenge](#the-challenge)
-    <!-- - [Added features](#added-features) -->
+    - [Added features](#added-features)
   - [Links](#links)
   - [Screenshot](#screenshot)
 - [My process](#my-process)
@@ -23,28 +23,29 @@ Users should be able to:
 - See hover states for all interactive elements on the page
 - View each planet page and toggle between "Overview", "Internal Structure", and "Surface Geology"
 
-<!-- ### Added features
+### Added features
 
--  -->
+- Error handling for unknown sites
 
 ### Links
 
-- [Solution on Frontend Mentor]()
+- [Solution on Frontend Mentor](https://)
 
-- [Live site]()
+- [Live site](https://fm-planets-fact-site-9000.netlify.app/)
 
 ### Screenshot
 
 #### Desktop
 
-![Solution]()
+![Solution](https://github.com/Dudeldups/FM-planets-fact-site/blob/main/screenshots/solution.jpg)
 
 ## My process
 
 ### Built with
 
 - React (TypeScript)
-- Less
+- React Router
+- SCSS
 
 ## Author
 

@@ -2,5 +2,9 @@
 
 body {
   background-color: $clr-main-900;
-  color: $clr-white;
+}
+
+main {
+  @include max-width-content;
+  @include padding-inline;
 }

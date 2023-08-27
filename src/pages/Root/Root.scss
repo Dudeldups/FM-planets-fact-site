@@ -1,1 +1,15 @@
-@use "../../scss/abstracts";
+@use "../../scss/abstracts" as *;
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+
+  &__list {
+    display: flex;
+    list-style-type: none;
+
+    @include mq($until: $bp-tablet) {
+      flex-direction: column;
+    }
+  }
+}

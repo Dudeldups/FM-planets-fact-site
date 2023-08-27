@@ -1,6 +1,8 @@
 import data from "../../data/data.json";
 import { Link, NavLink, Outlet } from "react-router-dom";
 
+import "./Root.scss";
+
 export const rootLoader = () => {
   return data;
 };
