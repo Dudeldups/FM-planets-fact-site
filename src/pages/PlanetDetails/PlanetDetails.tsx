@@ -27,26 +27,48 @@ export default function PlanetDetails() {
   const isValidPage =
     currentPage && Object.keys(validDetails).includes(currentPage);
 
+  // details to fill the page
+  const mainImg =
+    currentPage === "structure" ? planet.images.internal : planet.images.planet;
+  let description, source;
+
+  switch (currentPage) {
+    case "overview":
+      description = planet.overview.content;
+      source = planet.overview.source;
+      break;
+    case "structure":
+      description = planet.structure.content;
+      source = planet.structure.source;
+      break;
+    case "geology":
+      description = planet.geology.content;
+      source = planet.geology.source;
+      break;
+    default:
+      break;
+  }
+
   return (
     <div className="planet__top-container">
-      <figure>
-        <img src={planet.images.planet} alt={planet.name} />
+      <figure className="planet__img-container">
+        <img src={mainImg} alt={planet.name} />
         {currentPage === "geology" && (
-          <img src={planet.images.planet} alt={planet.name} />
+          <img
+            src={planet.images.geology}
+            alt={`A detailed view of the geology of ${planet.name}'s surface`}
+          />
         )}
       </figure>
 
       <header className="planet__header">
         <h1 className="planet__title">{planet.name}</h1>
-        <blockquote className="planet__quote">
-          <p className="planet__desc">{planet.overview.content}</p>
+        <blockquote className="planet__quote" cite={source}>
+          <p className="planet__desc">{description}</p>
           <footer>
             Source:{" "}
             <cite>
-              <a
-                href={planet.overview.source}
-                target="_blank"
-                rel="noopener noreferrer">
+              <a href={source} target="_blank" rel="noopener noreferrer">
                 Wikipedia
               </a>
             </cite>
