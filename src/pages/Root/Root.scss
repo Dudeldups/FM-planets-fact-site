@@ -1,17 +1,54 @@
 @use "../../scss/abstracts" as *;
 
-.nav {
-  @include max-width-content($add: 17rem);
+.header {
+  @include max-width-content(17rem);
   @include padding-inline;
-  display: flex;
-  justify-content: space-between;
+}
+
+.nav {
+  position: relative;
+  padding-block: 1rem;
+  @include border(0.0625rem, rgba($clr-white, 0.15), $where: bottom);
+
+  @include mq($bp-desktop) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @include mq($bp-desktop) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 
   &__list {
     display: flex;
     list-style-type: none;
 
     @include mq($until: $bp-tablet) {
+      position: absolute;
       flex-direction: column;
+      margin-block: 1.05rem;
+      width: 100%;
+      background-color: $clr-main-900;
+
+      transition: opacity 1s ease-out;
+      opacity: 0;
+
+      input:checked ~ & {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__item {
+    @include mq($until: $bp-tablet) {
+      padding-left: 2.8rem;
+      padding-block: 1.25rem;
+      width: 100%;
+
+      &:not(:first-child) {
+        @include border(0.0625rem, rgba($clr-white, 0.15), $where: top);
+      }
     }
   }
 }
@@ -19,7 +56,42 @@
 .hamburger {
   // NOMNOM 🍔
 
-  &-label {
+  &__input {
+    appearance: none;
+    position: absolute;
+    left: -20rem;
+  }
+
+  &__label {
+    position: absolute;
+    inset: 1.2rem 1.5rem auto auto;
+    padding: 0.3rem;
+
+    input:focus-visible + & {
+      outline: 0.2rem solid white;
+    }
+
+    input:checked + & {
+      & .hamburger__line {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__line {
+    opacity: 0.4;
+    display: block;
+    width: 1.5rem;
+    height: 0.1875rem;
+    background-color: $clr-white;
+
+    &:nth-child(2) {
+      margin-block: 0.25rem;
+    }
+  }
+
+  &__label,
+  &__input {
     @include mq($bp-tablet) {
       display: none;
     }

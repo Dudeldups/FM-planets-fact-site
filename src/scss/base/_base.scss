@@ -4,7 +4,12 @@ body {
   background-color: $clr-main-900;
 }
 
-main {
+main,
+.footer {
   @include max-width-content;
   @include padding-inline;
+}
+
+a {
+  text-decoration: none;
 }

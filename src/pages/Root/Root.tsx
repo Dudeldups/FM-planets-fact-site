@@ -22,26 +22,22 @@ export default function Root() {
     <>
       <header className="header">
         <nav className="nav">
-          <Link to="/">
-            <p className="nav__title link">The Planets</p>
+          <Link to="/" className="nav__title">
+            The Planets
           </Link>
           <input
             id="hamburger"
             name="hamburger"
             type="checkbox"
-            className="hamburger-input sr-only"
+            className="hamburger__input"
           />
-          <label htmlFor="hamburger" className="hamburger-label">
-            <span className="sr-only">Toggle enu</span>
+          <label htmlFor="hamburger" className="hamburger__label">
+            <span className="hamburger__line"></span>
+            <span className="hamburger__line"></span>
+            <span className="hamburger__line"></span>
+            <span className="sr-only">Toggle menu</span>
           </label>
-          <ul className="nav__list">
-            <li>
-              <NavLink to="/" title="Home" className="nav__link">
-                Home
-              </NavLink>
-            </li>
-            {planetLinks}
-          </ul>
+          <ul className="nav__list">{planetLinks}</ul>
         </nav>
       </header>
 

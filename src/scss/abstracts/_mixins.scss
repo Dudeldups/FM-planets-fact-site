@@ -1,8 +1,10 @@
 @use "sass:math";
+@use "sass:list";
+@use "sass:map";
 @use "functions" as *;
 @use "variables" as *;
 
-@mixin animation($duration) {
+@mixin animation($duration, $delay: null) {
   $name: animation-#{unique-id()};
 
   @keyframes #{$name} {
@@ -12,42 +14,18 @@
   animation-name: $name;
   animation-duration: $duration;
   animation-iteration-count: infinite;
+  @if ($delay != null) {
+    animation-delay: $delay;
+  }
 }
 
 @mixin font(
   $size: null,
-  $weight: null,
   $height: null,
   $spacing: null,
-  $align: null,
-  $transform: null,
+  $weight: null,
   $family: null
 ) {
-  $allParameters: (
-    $size,
-    $weight,
-    $height,
-    $spacing,
-    $align,
-    $transform,
-    $family
-  );
-
-  $styles: ();
-
-  @each $value in $allParameters {
-    @if is-bracketed($value) {
-      $styles: validateStrings($value);
-      @if length($styles) == 0 {
-        $styles: append($styles, $value);
-      }
-    }
-  }
-
-  // @each $rule in $styles {
-  //   #{$rule};
-  // }
-
   @if $size {
     @if type-of($size) == number {
       font-size: #{$size}rem;
@@ -55,24 +33,48 @@
       font-size: #{$size};
     }
   }
-  @if $weight {
-    font-weight: #{$weight};
-  }
   @if $height {
     line-height: #{$height};
   }
   @if $spacing {
-    letter-spacing: #{$spacing};
+    @if type-of($spacing) == number {
+      letter-spacing: #{$spacing}rem;
+    } @else {
+      letter-spacing: #{$spacing};
+    }
   }
-  @if $align {
-    text-align: $align;
-  }
-  @if $transform {
-    text-transform: $transform;
+  @if $weight {
+    font-weight: #{$weight};
   }
   @if $family {
     font-family: $family;
   }
+}
+
+@mixin pseudo($where: after, $content: "", $position: absolute, $inset: 0) {
+  position: relative;
+
+  &::#{$where} {
+    content: $content;
+    position: $position;
+    inset: $inset;
+    @content;
+  }
+}
+
+@mixin hoverfocus() {
+  &:hover,
+  &:focus-visible {
+    @content;
+  }
+}
+
+@mixin border($width, $color, $style: solid, $where: "") {
+  $hyphen: "";
+  @if $where != "" {
+    $hyphen: "-";
+  }
+  border#{$hyphen}#{$where}: $width $style $color;
 }
 
 @mixin max-width-content($add: 0) {
@@ -80,6 +82,6 @@
   margin-inline: auto;
 }
 
-@mixin padding-inline {
+@mixin padding-inline($add: 0) {
   padding-inline: $padding-inline-content;
 }

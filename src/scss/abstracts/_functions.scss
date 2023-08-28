@@ -44,20 +44,3 @@
     #{$max-size-rem}
   );
 }
-
-@function validateStrings($stringList) {
-  @if type-of($stringList) == number or type-of($stringList) != string {
-    @return null;
-  }
-
-  $styles: ();
-
-  $text-alignings: "start", "end", "left", "right", "center", "justify",
-    "justify-all", "match-parent", "revert";
-
-  @if index($text-alignings, $stringList) {
-    $styles: append($styles, "text-align: #{$stringList};");
-  }
-
-  @return $styles;
-}

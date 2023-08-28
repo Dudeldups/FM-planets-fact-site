@@ -7,14 +7,16 @@ $clr-main-700: #38384f;
 $clr-main-300: #838391;
 $clr-white: #fff;
 
-$clr-mercury: #419ebb;
-$clr-venus: #eda249;
-$clr-earth: #6f2ed6;
-$clr-mars: #d14c32;
-$clr-jupiter: #d83a34;
-$clr-saturn: #cd5120;
-$clr-uranus: #1ec2a4;
-$clr-neptune: #2d68f0;
+$planet-colors: (
+  "mercury": #419ebb,
+  "venus": #eda249,
+  "earth": #6f2ed6,
+  "mars": #d14c32,
+  "jupiter": #d83a34,
+  "saturn": #cd5120,
+  "uranus": #1ec2a4,
+  "neptune": #2d68f0,
+);
 
 // breakpoints
 
@@ -22,6 +24,7 @@ $bp-tablet: 740px;
 $bp-desktop: 980px;
 
 // sizing
+
 $padding-inline-min: 1.5rem;
 $padding-inline-max: 2.44rem;
 $padding-inline-content: get-clamp(
