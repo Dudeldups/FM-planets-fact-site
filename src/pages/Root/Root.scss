@@ -103,6 +103,7 @@
 
   &__line {
     $height: 0.1875rem;
+    $offset: 0.195em;
     opacity: 0.4;
     display: block;
     width: 1.5rem;
@@ -115,56 +116,76 @@
     }
 
     &:nth-child(1) {
-      display: none;
       transform: translateY(calc($height * -1.2));
-
       animation: 2s forwards;
+
       @include animation {
         0% {
+          transform: translateY($offset) rotate(-45deg) scale(1);
+        }
+        50% {
+          transform: translateY($offset) rotate(-45deg) scale(0, 1);
+        }
+        55% {
+          transform: translateY($height) scale(0, 1);
+        }
+        75% {
+          transform: translateY($height) scale(1);
+        }
+        100% {
           transform: translateY(calc($height * -1.2));
         }
-
-        100% {
-          transform: translateY($height);
-        }
       }
+
       input:checked ~ label & {
+        animation: 2s forwards;
+
         @include animation {
-          from {
-            rotate: 0;
+          0% {
+            transform: translateY(calc($height * -1.2));
           }
-          to {
-            rotate: -45deg;
+          25% {
+            transform: translateY($height);
+          }
+          45% {
+            transform: translateY($height) scale(0, 1);
+          }
+          50% {
+            transform: translateY($offset) rotate(-45deg) scale(0, 1);
+          }
+          100% {
+            transform: translateY($offset) rotate(-45deg) scale(1);
           }
         }
       }
     }
 
     &:nth-child(2) {
-      // display: none;
-      opacity: 1;
-      transition: opacity 1s ease-in;
+      opacity: 0.4;
+      transition: opacity 200ms ease-in 1.2s;
+
       input:checked ~ label & {
         opacity: 0;
+        transition-delay: 200ms;
       }
     }
 
     &:nth-child(3) {
       transform: translateY(calc($height * 1.2));
-      animation: 4s forwards;
+      animation: 2s forwards;
 
       @include animation {
         0% {
-          transform: translateY(0) rotate(45deg) scale(1);
+          transform: translateY(-$offset) rotate(45deg) scale(1);
         }
-        10% {
-          transform: translateY(0) rotate(45deg) scale(0, 1);
+        50% {
+          transform: translateY(-$offset) rotate(45deg) scale(0, 1);
         }
-        20% {
+        55% {
           transform: translateY(-$height) scale(0, 1);
         }
-        21% {
-          transform: translateY(-$height);
+        75% {
+          transform: translateY(-$height) scale(1);
         }
         100% {
           transform: translateY(calc($height * 1.2));
@@ -172,6 +193,25 @@
       }
 
       input:checked ~ label & {
+        animation: 2s forwards;
+
+        @include animation {
+          0% {
+            transform: translateY(calc($height * 1.2));
+          }
+          25% {
+            transform: translateY(-$height);
+          }
+          45% {
+            transform: translateY(-$height) scale(0, 1);
+          }
+          50% {
+            transform: translateY(-$offset) rotate(45deg) scale(0, 1);
+          }
+          100% {
+            transform: translateY(-$offset) rotate(45deg) scale(1);
+          }
+        }
       }
     }
   }
