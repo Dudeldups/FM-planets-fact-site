@@ -25,6 +25,8 @@ Users should be able to:
 
 ### Added features
 
+- Home page with an overview of all planets
+- Hamburger-menu animated using pure CSS
 - Error handling for unknown sites
 
 ### Links
