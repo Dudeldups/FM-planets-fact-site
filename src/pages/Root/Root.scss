@@ -3,17 +3,17 @@
 .header {
   @include max-width-content(17rem);
   @include padding-inline;
+  @include border(0.0625rem, rgba($clr-white, 0.15), $where: bottom);
 }
 
 .nav {
   position: relative;
   padding-block: 1rem;
-  @include border(0.0625rem, rgba($clr-white, 0.15), $where: bottom);
 
-  @include mq($bp-desktop) {
-    display: flex;
-    flex-direction: column;
-  }
+  // @include mq($bp-tablet) {
+  //   display: flex;
+  //   flex-direction: column;
+  // }
 
   @include mq($bp-desktop) {
     flex-direction: row;
@@ -26,28 +26,57 @@
 
     @include mq($until: $bp-tablet) {
       position: absolute;
+      inset: 5rem 0 0 0;
+      display: flex;
       flex-direction: column;
-      margin-block: 1.05rem;
-      width: 100%;
-      background-color: $clr-main-900;
-
-      transition: opacity 1s ease-out;
+      min-height: calc(100vh + 3rem);
+      min-height: calc(100dvh + 3rem);
+      background: linear-gradient(
+        to bottom,
+        $clr-main-900,
+        $clr-main-900 90%,
+        rgba(0, 0, 0, 0)
+      );
       opacity: 0;
 
+      transform: translateX(calc(100% + $padding-inline-max));
+      transition: opacity 0.6s ease-out 0.3s, transform 0.6s ease-in;
+
       input:checked ~ & {
+        transform: translateX(0);
         opacity: 1;
+        transition: opacity 0.6s ease-out 0.1s, transform 0.9s ease-out;
+
+        @include pseudo(after, $inset: auto 0 -4rem 0) {
+          height: 4.1rem;
+        }
       }
     }
   }
 
   &__item {
     @include mq($until: $bp-tablet) {
+      display: grid;
+      grid-template-rows: 0fr;
       padding-left: 2.8rem;
       padding-block: 1.25rem;
-      width: 100%;
 
       &:not(:first-child) {
         @include border(0.0625rem, rgba($clr-white, 0.15), $where: top);
+      }
+
+      @include pseudo(after);
+    }
+  }
+
+  &__link {
+    @include mq($until: $bp-tablet) {
+      opacity: 0;
+      transition: opacity 0.3s ease-out;
+
+      input:checked ~ .nav__list & {
+        opacity: 1;
+        transition: opacity 0.3s ease-in 0.65s;
       }
     }
   }
@@ -70,23 +99,80 @@
     input:focus-visible + & {
       outline: 0.2rem solid white;
     }
-
-    input:checked + & {
-      & .hamburger__line {
-        opacity: 1;
-      }
-    }
   }
 
   &__line {
+    $height: 0.1875rem;
     opacity: 0.4;
     display: block;
     width: 1.5rem;
-    height: 0.1875rem;
+    height: $height;
     background-color: $clr-white;
+    transition: opacity 300ms ease-in;
+
+    input:checked + label & {
+      opacity: 1;
+    }
+
+    &:nth-child(1) {
+      display: none;
+      transform: translateY(calc($height * -1.2));
+
+      animation: 2s forwards;
+      @include animation {
+        0% {
+          transform: translateY(calc($height * -1.2));
+        }
+
+        100% {
+          transform: translateY($height);
+        }
+      }
+      input:checked ~ label & {
+        @include animation {
+          from {
+            rotate: 0;
+          }
+          to {
+            rotate: -45deg;
+          }
+        }
+      }
+    }
 
     &:nth-child(2) {
-      margin-block: 0.25rem;
+      // display: none;
+      opacity: 1;
+      transition: opacity 1s ease-in;
+      input:checked ~ label & {
+        opacity: 0;
+      }
+    }
+
+    &:nth-child(3) {
+      transform: translateY(calc($height * 1.2));
+      animation: 4s forwards;
+
+      @include animation {
+        0% {
+          transform: translateY(0) rotate(45deg) scale(1);
+        }
+        10% {
+          transform: translateY(0) rotate(45deg) scale(0, 1);
+        }
+        20% {
+          transform: translateY(-$height) scale(0, 1);
+        }
+        21% {
+          transform: translateY(-$height);
+        }
+        100% {
+          transform: translateY(calc($height * 1.2));
+        }
+      }
+
+      input:checked ~ label & {
+      }
     }
   }
 

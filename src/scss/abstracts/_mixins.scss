@@ -4,7 +4,7 @@
 @use "functions" as *;
 @use "variables" as *;
 
-@mixin animation($duration, $delay: null) {
+@mixin animation {
   $name: animation-#{unique-id()};
 
   @keyframes #{$name} {
@@ -12,11 +12,6 @@
   }
 
   animation-name: $name;
-  animation-duration: $duration;
-  animation-iteration-count: infinite;
-  @if ($delay != null) {
-    animation-delay: $delay;
-  }
 }
 
 @mixin font(
@@ -51,8 +46,16 @@
   }
 }
 
-@mixin pseudo($where: after, $content: "", $position: absolute, $inset: 0) {
-  position: relative;
+@mixin pseudo(
+  $where: after,
+  $content: "",
+  $position: absolute,
+  $inset: 0,
+  $parent: false
+) {
+  @if ($parent == true) {
+    position: relative;
+  }
 
   &::#{$where} {
     content: $content;
