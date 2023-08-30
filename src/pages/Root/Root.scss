@@ -27,10 +27,11 @@
     @include mq($until: $bp-tablet) {
       position: absolute;
       inset: 4.5rem 0 0 0;
+      overflow-x: hidden;
       display: flex;
       flex-direction: column;
-      min-height: calc(100vh + 3rem);
-      min-height: calc(100dvh + 3rem);
+      min-height: 100vh;
+      min-height: 100dvh;
       background: linear-gradient(
         to bottom,
         $clr-main-900,
@@ -38,18 +39,14 @@
         rgba(0, 0, 0, 0)
       );
       opacity: 0;
-
-      transform: translateX(calc(100% + $padding-inline-max));
-      transition: opacity 0.6s ease-out 0.3s, transform 0.6s ease-in;
+      width: 0;
+      margin-left: auto;
+      transition: opacity 0.6s ease-out 0.3s, width 0.6s ease-in;
 
       input:checked ~ & {
-        transform: translateX(0);
+        width: 100%;
         opacity: 1;
-        transition: opacity 0.6s ease-out 0.1s, transform 0.9s ease-out;
-
-        @include pseudo(after, $inset: auto 0 -4rem 0) {
-          height: 4.1rem;
-        }
+        transition: opacity 0.6s ease-out 0.1s, width 0.9s ease-out;
       }
     }
   }
