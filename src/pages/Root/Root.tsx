@@ -2,16 +2,23 @@ import data from "../../data/data.json";
 import { Link, NavLink, Outlet } from "react-router-dom";
 
 import "./Root.scss";
+import { useState } from "react";
 
 export const rootLoader = () => {
   return data;
 };
 
 export default function Root() {
+  const [isHamburgerOpen, setIsHamburgerOpen] = useState<boolean>(false);
+
   const planetLinks = data.map(({ name }: Planet) => {
     return (
       <li key={`${name}-navlink`} className="nav__item">
-        <NavLink to={`${name}/overview`} title={name} className="nav__link">
+        <NavLink
+          to={`${name}/overview`}
+          title={name}
+          className="nav__link"
+          onClick={() => setIsHamburgerOpen(false)}>
           {name}
         </NavLink>
       </li>
@@ -22,13 +29,18 @@ export default function Root() {
     <>
       <header className="header">
         <nav className="nav">
-          <Link to="/" className="nav__title">
+          <Link
+            to="/"
+            className="nav__title"
+            onClick={() => setIsHamburgerOpen(false)}>
             The Planets
           </Link>
           <input
             id="hamburger"
             name="hamburger"
             type="checkbox"
+            checked={isHamburgerOpen}
+            onChange={() => setIsHamburgerOpen(val => !val)}
             className="hamburger__input"
           />
           <label htmlFor="hamburger" className="hamburger__label">
