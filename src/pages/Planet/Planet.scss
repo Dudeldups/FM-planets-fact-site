@@ -1,1 +1,23 @@
 @use "../../scss/abstracts" as *;
+
+.stats {
+  display: grid;
+  gap: 0.5rem;
+  margin-top: 1.75rem;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include border(0.0625rem, rgba($clr-white, 0.2));
+    padding: 0.55rem 1.5rem;
+  }
+
+  &__title {
+    opacity: 0.8;
+  }
+
+  &__detail {
+    color: unset;
+  }
+}

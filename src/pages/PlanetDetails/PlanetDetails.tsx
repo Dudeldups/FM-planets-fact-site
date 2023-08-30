@@ -55,11 +55,16 @@ export default function PlanetDetails() {
   return (
     <div className="planet__top-container">
       <figure className="planet__img-container">
-        <img src={mainImg} alt={`An illustration of ${planet.name}`} />
+        <img
+          src={mainImg}
+          alt={`An illustration of ${planet.name}`}
+          className="planet__img-big"
+        />
         {currentPage === "geology" && (
           <img
             src={planet.images.geology}
             alt={`A detailed view of the geology of ${planet.name}'s surface`}
+            className="planet__img-small"
           />
         )}
       </figure>
@@ -68,7 +73,7 @@ export default function PlanetDetails() {
         <h2 className="planet__title">{planet.name}</h2>
         <blockquote className="planet__quote" cite={source}>
           <p className="planet__desc">{description}</p>
-          <footer>
+          <footer className="planet__source">
             Source:{" "}
             <cite>
               <a href={source} target="_blank" rel="noopener noreferrer">

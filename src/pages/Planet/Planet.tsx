@@ -23,22 +23,22 @@ export default function Planet() {
         <>
           <Outlet context={planet} />
 
-          <dl className="planet__stats">
-            <div>
-              <dt>Rotation time</dt>
-              <dd>{planet.rotation}</dd>
+          <dl className="stats">
+            <div className="stats__container">
+              <dt className="stats__title">Rotation time</dt>
+              <dd className="stats__detail">{planet.rotation}</dd>
             </div>
-            <div>
-              <dt>Revolution time</dt>
-              <dd>{planet.revolution}</dd>
+            <div className="stats__container">
+              <dt className="stats__title">Revolution time</dt>
+              <dd className="stats__detail">{planet.revolution}</dd>
             </div>
-            <div>
-              <dt>Radius</dt>
-              <dd>{planet.radius}</dd>
+            <div className="stats__container">
+              <dt className="stats__title">Radius</dt>
+              <dd className="stats__detail">{planet.radius}</dd>
             </div>
-            <div>
-              <dt>Average temp.</dt>
-              <dd>{planet.temperature}</dd>
+            <div className="stats__container">
+              <dt className="stats__title">Average temp.</dt>
+              <dd className="stats__detail">{planet.temperature}</dd>
             </div>
           </dl>
         </>

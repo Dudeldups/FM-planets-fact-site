@@ -14,38 +14,6 @@
   animation-name: $name;
 }
 
-@mixin font(
-  $size: null,
-  $height: null,
-  $spacing: null,
-  $weight: null,
-  $family: null
-) {
-  @if $size {
-    @if type-of($size) == number {
-      font-size: #{$size}rem;
-    } @else {
-      font-size: #{$size};
-    }
-  }
-  @if $height {
-    line-height: #{$height};
-  }
-  @if $spacing {
-    @if type-of($spacing) == number {
-      letter-spacing: #{$spacing}rem;
-    } @else {
-      letter-spacing: #{$spacing};
-    }
-  }
-  @if $weight {
-    font-weight: #{$weight};
-  }
-  @if $family {
-    font-family: $family;
-  }
-}
-
 @mixin pseudo(
   $where: after,
   $content: "",

@@ -1,1 +1,51 @@
 @use "../../scss/abstracts" as *;
+
+.planet {
+  &__top-container {
+    display: grid;
+    grid-template-areas:
+      "nav"
+      "img"
+      "text";
+  }
+
+  &__img-container {
+    grid-area: img;
+    margin-top: 2rem;
+  }
+
+  &__img-big {
+    width: 100%;
+  }
+
+  &__header {
+    grid-area: text;
+  }
+
+  &__title {
+    margin-top: 2rem;
+  }
+
+  &__desc {
+    margin-top: 1rem;
+  }
+
+  &__source {
+    margin-top: 2rem;
+  }
+
+  ///// secondary nav links /////
+  &__link-list {
+    @include border(0.0625rem, rgba($clr-white, 0.15), $where: bottom);
+    list-style: none;
+
+    @include mq($until: $bp-tablet) {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__link-item {
+    padding-block: 1.25rem;
+  }
+}
