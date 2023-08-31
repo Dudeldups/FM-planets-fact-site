@@ -81,6 +81,7 @@ body {
   &__desc {
     font-size: get-clamp(0.875, 0.875rem, $bp-tablet, $bp-desktop);
     line-height: 1.375rem;
+    color: rgba($clr-white, 0.8);
 
     @include mq($until: $bp-tablet) {
       text-align: center;
@@ -89,9 +90,22 @@ body {
 
   &__source {
     text-align: center;
+    color: rgba($clr-white, 0.5);
 
     & a {
       text-decoration: underline;
+      color: inherit;
+    }
+  }
+
+  &__inner-link {
+    font-size: 0.75rem;
+    letter-spacing: 0.12056rem;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    &:not(.active) {
+      color: rgba($clr-white, 0.5);
     }
   }
 }
@@ -104,6 +118,7 @@ body {
     font-weight: 700;
     line-height: 1rem;
     letter-spacing: 0.04544rem;
+    color: rgba($clr-white, 0.6);
   }
 
   &__detail {

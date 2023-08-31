@@ -100,7 +100,7 @@ export default function PlanetDetails() {
             relative="path"
             title="Internal structure"
             className="planet__inner-link">
-            Internal structure
+            <span>Internal</span> structure
           </NavLink>
         </li>
         <li className="planet__link-item">
@@ -109,7 +109,7 @@ export default function PlanetDetails() {
             relative="path"
             title="Surface geology"
             className="planet__inner-link">
-            Surface geology
+            Surface <span>geology</span>
           </NavLink>
         </li>
       </ul>
