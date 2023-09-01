@@ -84,7 +84,7 @@ export default function PlanetDetails() {
         </blockquote>
       </header>
 
-      <ul className="planet__link-list">
+      <ul className={`planet__link-list ${planet.name.toLowerCase()}`}>
         <li className="planet__link-item">
           <NavLink
             to="../overview"
