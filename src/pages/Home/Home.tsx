@@ -9,7 +9,7 @@ export default function Home() {
 
   return (
     <article className="home">
-      <header>
+      <header className="home__header">
         <h1 className="home__title">
           The planets <span>of our</span> Solar System
         </h1>
@@ -37,23 +37,22 @@ export default function Home() {
           </footer>
         </blockquote>
       </header>
-      <ul>
-        <h2>Learn more about each planet</h2>
+      <h2 className="home__subtitle">Learn more about each planet</h2>
+      <ul className="home__planet-list">
         {data.map(planet => (
-          <Link
-            key={planet.name}
-            to={`/${planet.name}/overview`}
-            title={planet.name}>
-            <li>
+          <li key={planet.name}>
+            <Link to={`/${planet.name}/overview`} title={planet.name}>
               <figure>
-                <figcaption>{planet.name}</figcaption>
+                <figcaption className="home__planet-name">
+                  {planet.name}
+                </figcaption>
                 <img
                   src={planet.images.planet}
                   alt={`An illustration of ${planet.name}`}
                 />
               </figure>
-            </li>
-          </Link>
+            </Link>
+          </li>
         ))}
       </ul>
     </article>

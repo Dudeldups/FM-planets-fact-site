@@ -2,8 +2,48 @@
 
 .home {
   &__title {
+    margin-top: 2.5rem;
+    max-width: 19ch;
+
     & span {
       display: block;
+
+      @include mq($bp-desktop) {
+        display: inline;
+      }
+    }
+  }
+
+  &__desc {
+    margin-block: 3rem 1.5rem;
+    max-width: 60ch;
+
+    @include mq($until: $bp-desktop) {
+      margin-inline: auto;
+    }
+  }
+
+  &__subtitle {
+    margin-top: 3rem;
+  }
+
+  &__planet-list {
+    list-style: none;
+    display: grid;
+    gap: 1rem;
+    justify-items: center;
+    margin-top: 2rem;
+
+    @include mq($bp-desktop) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @include mq(1440px) {
+      grid-template-columns: repeat(8, 1fr);
+    }
+
+    & figcaption {
+      margin-block: 2rem 1.5rem;
     }
   }
 }
