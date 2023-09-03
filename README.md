@@ -39,7 +39,7 @@ Users should be able to:
 
 #### Desktop
 
-![Solution](https://github.com/Dudeldups/FM-planets-fact-site/blob/main/screenshots/solution.jpg)
+![Solution](https://github.com/Dudeldups/FM-planets-fact-site/blob/main/screenshots/solution.png)
 
 ## My process
 
