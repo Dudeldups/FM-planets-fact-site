@@ -14,11 +14,11 @@ export default function Root() {
 
   const planetLinks = data.map(({ name }: Planet) => {
     return (
-      <li key={`${name}-navlink`} className="nav__item">
+      <li key={`${name}-navlink`} className={`nav__item ${name.toLowerCase()}`}>
         <NavLink
           to={`${name}/overview`}
           title={name}
-          className="nav__link"
+          className={`nav__link`}
           onClick={() => setIsHamburgerOpen(false)}>
           {name}
         </NavLink>

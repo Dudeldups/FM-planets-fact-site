@@ -92,6 +92,13 @@
   &__inner-link {
     display: block;
     padding: 1.25rem 0.3rem;
+    transition: background-color 200ms ease-in;
+
+    @include hoverfocus {
+      &:not(.active) {
+        background-color: rgba($clr-white, 0.15);
+      }
+    }
 
     // hide the second word of inner-links on mobile
     & > span {

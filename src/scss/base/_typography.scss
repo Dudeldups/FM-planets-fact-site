@@ -144,6 +144,10 @@ body {
     line-height: 1rem;
     letter-spacing: 0.04544rem;
     color: rgba($clr-white, 0.6);
+
+    @include mq($bp-desktop) {
+      font-size: 0.8rem;
+    }
   }
 
   &__detail {

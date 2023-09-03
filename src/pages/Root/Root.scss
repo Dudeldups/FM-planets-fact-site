@@ -23,7 +23,6 @@
     flex-direction: column;
     align-items: center;
     gap: 2.44rem;
-    padding-block: 1.5rem;
   }
 
   @include mq($bp-desktop) {
@@ -118,6 +117,31 @@
       input:checked ~ .nav__list & {
         opacity: 1;
         transition: opacity 0.3s ease-in 0.65s;
+      }
+    }
+
+    @include mq($bp-tablet) {
+      display: inline-block;
+      padding-block: 0.8rem;
+
+      // colored nav bar links for each planet
+      @each $planet, $color in $planet-colors {
+        .#{$planet} & {
+          @include pseudo(before, $inset: 0 0 auto 0, $parent: true) {
+            height: 0.25rem;
+            opacity: 0;
+            background-color: $color;
+            transition: opacity 0.3s ease-out;
+          }
+        }
+      }
+
+      &:hover,
+      &:focus-visible,
+      &.active {
+        &::before {
+          opacity: 1;
+        }
       }
     }
   }
