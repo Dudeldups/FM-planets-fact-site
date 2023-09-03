@@ -128,7 +128,7 @@
       // counter ::before
       @include pseudo(before, $inset: 50% auto 0 0, $parent: true) {
         content: "0" counter(list-item);
-        transform: translateY(-32%);
+        transform: translateY(-25%);
         color: rgba($clr-white, 0.5);
         margin-left: 1.25rem;
       }
