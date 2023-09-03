@@ -12,11 +12,23 @@
 
   &__img-container {
     grid-area: img;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(10, 1fr);
     margin-top: 2rem;
   }
 
   &__img-big {
     width: 100%;
+    grid-row: 1 / -1;
+    grid-column: 1;
+  }
+
+  &__img-small {
+    width: 55%;
+    grid-row: 6 / -1;
+    grid-column: 1;
   }
 
   &__header {
@@ -37,15 +49,17 @@
 
   ///// secondary nav links /////
   &__link-list {
+    position: relative;
     @include border(0.0625rem, rgba($clr-white, 0.15), $where: bottom);
     list-style: none;
     background-color: $clr-main-900;
 
     @include mq($until: $bp-tablet) {
+      z-index: 2;
       display: flex;
       justify-content: space-between;
       position: sticky;
-      top: 0;
+      top: 4.3rem;
     }
   }
 

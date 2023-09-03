@@ -1,9 +1,16 @@
 @use "../../scss/abstracts" as *;
 
 .header {
+  z-index: 10;
   @include max-width-content(17rem);
   @include padding-inline;
   @include border(0.0625rem, rgba($clr-white, 0.15), $where: bottom);
+
+  @include mq($until: $bp-tablet) {
+    position: sticky;
+    top: 0;
+    background-color: $clr-main-900;
+  }
 }
 
 .nav {

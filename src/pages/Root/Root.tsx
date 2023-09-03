@@ -3,6 +3,7 @@ import { Link, NavLink, Outlet } from "react-router-dom";
 import { useState } from "react";
 
 import "./Root.scss";
+import ScrollToTop from "../../components/ScrollToTop";
 
 export const rootLoader = () => {
   return data;
@@ -55,6 +56,7 @@ export default function Root() {
 
       <main>
         <section>
+          <ScrollToTop />
           <Outlet />
         </section>
       </main>
