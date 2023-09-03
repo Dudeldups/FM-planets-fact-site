@@ -73,11 +73,16 @@ export default function PlanetDetails() {
         <h2 className="planet__title">{planet.name}</h2>
         <blockquote className="planet__quote" cite={source}>
           <p className="planet__desc">{description}</p>
-          <footer className="planet__source">
+          <footer className="planet__source source">
             Source:{" "}
             <cite>
               <a href={source} target="_blank" rel="noopener noreferrer">
                 Wikipedia
+                <img
+                  src="/assets/images/icon-source.svg"
+                  alt=""
+                  aria-hidden="true"
+                />
               </a>
             </cite>
           </footer>

@@ -27,11 +27,16 @@ export default function Home() {
             texts, these terrestrial and giant planets are called the inner
             Solar System and outer Solar System planets respectively.
           </p>
-          <footer>
+          <footer className="source">
             Source:{" "}
             <cite>
               <a href={source} target="_blank" rel="noopener noreferrer">
                 Wikipedia
+                <img
+                  src="/assets/images/icon-source.svg"
+                  alt=""
+                  aria-hidden="true"
+                />
               </a>
             </cite>
           </footer>

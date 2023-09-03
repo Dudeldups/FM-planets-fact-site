@@ -10,6 +10,11 @@ main,
   @include padding-inline;
 }
 
+cite img {
+  display: inline-block;
+  margin-left: 0.5rem;
+}
+
 .footer {
   padding-block: 3.5rem 2rem;
 }

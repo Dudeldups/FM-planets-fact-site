@@ -34,6 +34,28 @@ body {
   color: $clr-white;
 }
 
+.source {
+  text-align: center;
+  color: rgba($clr-white, 0.5);
+
+  & a {
+    text-decoration: underline;
+    color: inherit;
+  }
+
+  .home & {
+    @include mq($bp-desktop) {
+      text-align: left;
+    }
+  }
+
+  .planet & {
+    @include mq($bp-tablet) {
+      text-align: left;
+    }
+  }
+}
+
 .nav {
   &__title {
     font-size: 1.75rem;
@@ -95,20 +117,6 @@ body {
 
     @include mq($until: $bp-tablet) {
       text-align: center;
-    }
-  }
-
-  &__source {
-    text-align: center;
-    color: rgba($clr-white, 0.5);
-
-    & a {
-      text-decoration: underline;
-      color: inherit;
-    }
-
-    @include mq($bp-tablet) {
-      text-align: left;
     }
   }
 

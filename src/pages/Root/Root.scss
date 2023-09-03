@@ -23,6 +23,7 @@
     flex-direction: column;
     align-items: center;
     gap: 2.44rem;
+    padding-block: 1.5rem;
   }
 
   @include mq($bp-desktop) {
