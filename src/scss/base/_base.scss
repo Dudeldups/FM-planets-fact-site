@@ -1,7 +1,7 @@
 @use "../abstracts/" as *;
 
 body {
-  background-color: $clr-main-900;
+  background: $clr-main-900 url("/assets/images/background-stars.svg");
 }
 
 main,
@@ -11,5 +11,5 @@ main,
 }
 
 .footer {
-  padding-block: 3rem 2rem;
+  padding-block: 3.5rem 2rem;
 }

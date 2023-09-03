@@ -17,27 +17,39 @@
         "img img"
         "text nav";
     }
+
+    @include mq($bp-desktop) {
+      margin-top: 7rem;
+      gap: 2.44rem;
+      grid-template-columns: 2fr 1fr;
+      grid-template-areas:
+        "img text"
+        "img nav";
+    }
   }
 
   &__img-container {
+    height: 100%;
+    position: relative;
     grid-area: img;
     display: grid;
+    align-content: center;
     justify-items: center;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(10, 1fr);
     margin-top: 2rem;
+
+    @include mq($until: $bp-desktop) {
+      padding-bottom: 5rem;
+    }
   }
 
   &__img-big {
     max-width: 100%;
-    grid-row: 1 / -1;
-    grid-column: 1;
   }
 
   &__img-small {
-    max-width: 55%;
-    grid-row: 6 / -1;
-    grid-column: 1;
+    position: absolute;
+    bottom: 0;
+    max-width: 10.18rem;
   }
 
   &__header {
@@ -97,7 +109,7 @@
 
       @include pseudo(before, $inset: 50% auto 0 0, $parent: true) {
         content: "0" counter(list-item);
-        transform: translateY(-25%);
+        transform: translateY(-32%);
         color: rgba($clr-white, 0.5);
         margin-left: 1.25rem;
       }
