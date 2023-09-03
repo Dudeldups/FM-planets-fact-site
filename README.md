@@ -31,7 +31,7 @@ Users should be able to:
 
 ### Links
 
-- [Solution on Frontend Mentor](https://)
+- [Solution on Frontend Mentor](https://www.frontendmentor.io/solutions/reacttsscss-planets-fact-site-with-custom-homepage-kdNLcijlVs)
 
 - [Live site](https://fm-planets-fact-site-9000.netlify.app/)
 
