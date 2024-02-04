@@ -1,9 +1,10 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
+const isProd = process.env.NODE_ENV === "production";
+
 // https://vitejs.dev/config/
 export default defineConfig({
-  base:
-    process.env.NODE_ENV === "production" ? "/projects/planets-fact-site" : "/",
+  base: isProd ? "/projects/planets-fact-site" : "/",
   plugins: [react()],
 });
